@@ -31,7 +31,7 @@ def compare_dates
         birthday = DateTime.strptime(person[:birthdate], '%m-%d-%Y')
         same_month = birthday.month === today.month
         timeframe = birthday.day - today.day
-        within_week = timeframe >= 7
+        within_week = timeframe <= 7
 
         same_month && within_week ? send_birthday_message(person[:first], person[:last], timeframe) : puts('No birthdays')
     end
